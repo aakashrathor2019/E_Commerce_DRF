@@ -1,0 +1,5 @@
+settings.py
+admin.py
+# Ignore Python compiled bytecode files
+__pycache__/
+*.pyc
