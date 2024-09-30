@@ -17,7 +17,7 @@ class AddProduct(ModelViewSet):
     queryset=Product.objects.all()
     serializer_class=ProductSerilaizer
     authentication_classes=[JWTAuthentication]
-    permission_classes=[IsAuthenticatedOrReadOnly]
+    # permission_classes=[IsAuthenticatedOrReadOnly]
     throttle_classes=[AnonRateThrottle,UserRateThrottle]
     filterset_fields=['name']
     filter_backends=[OrderingFilter]

@@ -19,10 +19,8 @@ from django.contrib import admin
 from django.urls import path ,include
 from rest_framework.routers import DefaultRouter
 from shopping.views import AddProduct
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+
 
 # Create a router and register the viewset
 router = DefaultRouter()
@@ -30,6 +28,7 @@ router.register(r'products', AddProduct, basename='product')
 
 # Include the router's URLs into the urlpatterns
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include(router.urls)),  # This automatically adds URLs for the viewset actions
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/token/',TokenObtainPairView().as_view(),name='token_obtain_pair'),
